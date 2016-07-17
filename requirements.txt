@@ -30,5 +30,3 @@ aldryn_bootstrap3
 django-nested_admin
 django-autoslug
 django-modeltranslation
-.
-
