@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+
+{% block content %}
+
+	{% placeholder content or %}
+
+     <!--<div id="selector1">
+     <div class="grid"  class="selector1">   -->
+
+
+         <div class="testtest">
+                <div id="nanoGallery3">
+                    <a href="{{ MEDIA_URL }}lightgallery/big/1.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-1.jpg" data-ngkind="album" data-ngid="1" >Paris</a>
+                    <a href="{{ MEDIA_URL }}lightgallery/big/1.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-1.jpg" data-ngid="10"  data-ngdest="https://test3.connected.rocks/zh/trouve-son-logement/paris/14eme/prunais/" data-ngalbumid="1">Residence bubule</a>
+                    <a href="{{ MEDIA_URL }}lightgallery/big/2.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-2.jpg" data-ngid="11" data-ngalbumid="1" data-ngdesc="F3 20m2 A partir de 500Euros" >Logement toto</a> 
+                    <a href="{{ MEDIA_URL }}lightgallery/big/5.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-5.jpg" data-ngid="12" data-ngalbumid="1" data-ngdesc="F3 20m2 A partir de 500Euros" >Logement toto</a> 
+                    <a href="{{ MEDIA_URL }}lightgallery/big/6.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-6.jpg" data-ngid="13" data-ngalbumid="1" data-ngdesc="F3 20m2 A partir de 500Euros">Logement toto</a> 
+                    <a href="{{ MEDIA_URL }}lightgallery/big/7.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-7.jpg" data-ngid="14" data-ngalbumid="1" data-ngdesc="F3 20m2 A partir de 500Euros">Logement toto</a> 
+
+                    <a href="{{ MEDIA_URL }}lightgallery/big/3.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-3.jpg" data-ngkind="album" data-ngid="2">Toulouse</a>
+                    <a href="{{ MEDIA_URL }}lightgallery/big/8.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-8.jpg" data-ngid="20" data-ngalbumid="2" data-ngdesc="F3 20m2 A partir de 500Euros" >Batiment Marie</a>
+                    <a href="{{ MEDIA_URL }}lightgallery/big/9.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-9.jpg" data-ngid="21" data-ngdesc="F3 20m2 A partir de 500Euros" data-ngalbumid="2">Centre pompidou</a> 
+                    <a href="{{ MEDIA_URL }}lightgallery/big/10.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-10.jpg" data-ngid="22" data-ngdesc="F3 20m2 A partir de 500Euros" data-ngalbumid="2">Centre pompidou</a> 
+                    <a href="{{ MEDIA_URL }}lightgallery/big/11.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-11.jpg" data-ngid="23" data-ngdesc="F3 20m2 A partir de 500Euros" data-ngalbumid="2">Centre pompidou</a> 
+                    <a href="{{ MEDIA_URL }}lightgallery/big/12.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-12.jpg" data-ngid="24" data-ngdesc="F3 20m2 A partir de 500Euros" data-ngalbumid="2">Centre pompidou</a> 
+
+                    <a href="{{ MEDIA_URL }}lightgallery/big/13.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-13.jpg" data-ngkind="album" data-ngid="3">Bordeaux</a>
+                    <a href="{{ MEDIA_URL }}lightgallery/big/14.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-14.jpg" data-ngid="30" data-ngalbumid="3" data-ngdesc="F2 20m2 A partir de 400Euros" >Batiment Gustave</a>
+                    <a href="{{ MEDIA_URL }}lightgallery/big/15.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-15.jpg" data-ngid="31" data-ngalbumid="3" data-ngdesc="F4 80m2 A partir de 800Euros">Centre pompidou</a> 
+                    <a href="{{ MEDIA_URL }}lightgallery/big/17.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-17.jpg" data-ngid="33" data-ngalbumid="3" data-ngdesc="F4 80m2 A partir de 800Euros">Centre pompidou</a> 
+                    <a href="{{ MEDIA_URL }}lightgallery/big/18.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-18.jpg" data-ngid="34" data-ngalbumid="3" data-ngdesc="F4 80m2 A partir de 800Euros">Centre pompidou</a> 
+
+                    <a href="{{ MEDIA_URL }}lightgallery/big/18.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-18.jpg" data-ngkind="album" data-ngid="4">Orleans</a>
+                    <a href="{{ MEDIA_URL }}lightgallery/big/16.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-16.jpg" data-ngid="41" data-ngalbumid="4" data-ngdesc="F4 80m2 A partir de 800Euros">Centre pompidou</a> 
+                    <a href="{{ MEDIA_URL }}lightgallery/big/19.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-19.jpg" data-ngkind="album" data-ngid="5">Nantes</a>
+                    <a href="{{ MEDIA_URL }}lightgallery/big/16.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-16.jpg" data-ngid="51" data-ngalbumid="5" data-ngdesc="F4 80m2 A partir de 800Euros">Centre pompidou</a> 
+                    <a href="{{ MEDIA_URL }}lightgallery/big/20.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-20.jpg" data-ngkind="album" data-ngid="6">Amiens</a>
+                    <a href="{{ MEDIA_URL }}lightgallery/big/16.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-16.jpg" data-ngid="62" data-ngalbumid="6" data-ngdesc="F4 80m2 A partir de 800Euros">Centre pompidou</a> 
+                    <a href="{{ MEDIA_URL }}lightgallery/big/16.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-16.jpg" data-ngkind="album" data-ngid="7">Toulon</a>
+                    <a href="{{ MEDIA_URL }}lightgallery/big/16.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-16.jpg" data-ngid="74" data-ngalbumid="7" data-ngdesc="F4 80m2 A partir de 800Euros">Centre pompidou</a> 
+                    <a href="{{ MEDIA_URL }}lightgallery/big/15.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-15.jpg" data-ngkind="album" data-ngid="8">Gien</a>
+                    <a href="{{ MEDIA_URL }}lightgallery/big/16.jpg" data-ngthumb="{{ MEDIA_URL }}lightgallery/thumb-16.jpg" data-ngid="82" data-ngalbumid="8" data-ngdesc="F4 80m2 A partir de 800Euros">Centre pompidou</a> 
+                    
+
+ 
+  </div>
+  </div>
+
+                                    
+    {% endplaceholder %}
+{% endblock content %}

@@ -1,0 +1,35 @@
+
+{% extends 'rent_lookup/base.html' %}
+
+{% block rent_lookup_content %}
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/rent_lookup/{{ residencelist.departement.id }}"/>Departement</a></li>
+        <li>{{ residencelist.residence.residence_name }}</li>
+    </ul>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div id="nanoGallery3">
+                {% for city in cities %}
+                {% for residence in city.residence_set.all %}
+                {% with residence.image_set.all|first as image %}
+                <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngid="1000{{ city.id }}" >{{city.city_name}}</a>       
+
+                {% endwith %}
+                {% with residence.image_set.all|first as images %}    
+                <a href="{{ images.photo.url }}" data-ngthumb="{{ images.photo.url }}" data-ngid="{{ images.id }}"  data-ngdest="/rent_lookup/{{ city.departement.id }}/{{ city.id }}/{{residence.id}}/" data-ngalbumid="1000{{ city.id }}">{{ residence.residence_name }}</a>
+                {% endwith %}
+                {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

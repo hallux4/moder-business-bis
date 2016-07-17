@@ -1,0 +1,140 @@
+{% load cms_tags menu_tags sekizai_tags staticfiles %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% page_attribute 'meta_description' %}">
+    <meta name="author" content="Halluxvalgus">
+
+    <title>{% page_attribute 'page_title' %} Modern Business</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/header.css" %}" rel="stylesheet">
+
+    <link href="{% static "dist/css/jquery.mmenu.all.css" %}" rel="stylesheet">
+    <link href="{% static "dist/css/demo.css" %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static "css/modern-business.css" %}" rel="stylesheet">
+
+    <link href="{% static "light/css/lightgallery.css" %}" rel="stylesheet">
+    
+
+    <!-- Custom Fonts -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% render_block "css" %}
+</head>
+<body>
+    {% cms_toolbar %}
+        <div id="page">
+            <div class="header">
+                <a href="#menu"></a>
+            </div>
+
+            </div>
+
+
+
+    <!-- Navigation -->
+           <nav id="menu">
+                <ul>
+                    {% show_menu 0 100 100 100 %}
+                </ul>
+                </nav>
+    {% block content %}
+
+   
+
+
+    {% endblock %}
+
+
+
+    <footer>
+        {% static_placeholder "Footer" %}
+    </footer>
+
+    <!-- jQuery -->
+    
+
+
+    <script src="{% static "js/jquery.js" %}"></script>
+
+
+
+    <script src="{% static "light/js/lightgallery.js" %}"></script>
+    <script src="{% static "light/js/lg-fullscreen.js" %}"></script>
+    <script src="{% static "light/js/lg-thumbnail.js" %}"></script>
+
+    <script src="{% static "masson/masonry.pkgd.min.js" %}"></script>
+    <script src="{% static "masson/imagesloaded.pkgd.min.js" %}"></script>
+
+
+
+
+    <script src="{% static "dist/js/jquery.mmenu.all.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    
+    <script type="text/javascript">
+        $('#selector1').lightGallery({
+            selector: '.item'
+        });
+    </script>
+    
+    <script type="text/javascript">
+    var $grid = $('.grid').masonry({
+      itemSelector: '.item',
+        percentPosition: true,
+          });
+          // layout Isotope after each image loads
+          $grid.imagesLoaded().progress( function() {
+            $grid.masonry();
+            });   
+    </script>
+
+    <script type="text/javascript">
+            $(function() {
+                $("#menu")
+                    .mmenu({
+                    navbar: {
+                        add: false
+                    },
+                    navbars: [{
+                        content: ["searchfield"]
+                    }, {
+                        content: ['<a href="mailto:jcottin@ecritel.net" class="fa fa-envelope"></a>', '<a href="https://twitter.com/TheHalluxValgus" target="_blank" class="fa fa-twitter"></a>', '<a href="https://www.facebook.com/Halluxvalgus" target="_blank" class="fa fa-facebook"></a>']
+                    }],
+                    iconPanels: true,
+                    counters: true,
+                    extensions: ["pageshadow", "effect-menu-slide"]
+                    }).on( 'click',
+                        'a[href^="#/"]',
+                        function() {
+                            //alert( "Thank you for clicking, but that's a demo link." );
+                            return false;
+                        }
+                    );
+            });
+        </script>
+
+    <!-- Bootstrap Core JavaScript -->
+
+        <!--$("#lightgallery").lightGallery();-->
+    
+    {% render_block "js" %}
+
+
+</body>
+
+</html>

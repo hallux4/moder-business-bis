@@ -1,0 +1,13 @@
+{% extends 'rent_lookup/base.html' %}
+
+{% block rent_lookup_content %}
+
+<ul>
+    {% for residence in residences %}
+    <li> <a href="/rent_lookup/{{ residence.city.departement.id }}/{{ residence.city.id }}/{{ residence.id }}/">{{ residence.residence_name }}</a></li>
+    {% endfor %}
+</ul> 
+
+
+
+{% endblock %}

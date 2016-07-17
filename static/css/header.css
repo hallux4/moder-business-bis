@@ -1,0 +1,109 @@
+
+
+.stacktable { width: 100%; }
+.st-head-row { padding-top: 1em; }
+.st-head-row.st-head-row-main { font-size: 1.5em; padding-top: 0; }
+.st-key { width: 49%; text-align: right; padding-right: 1%; }
+.st-val { width: 49%; padding-left: 1%; }
+
+
+
+/* RESPONSIVE EXAMPLE */
+
+.stacktable.large-only { display: table; }
+.stacktable.small-only { display: none; }
+
+@media (max-width: 800px) {
+  .stacktable.large-only { display: none; }
+  .stacktable.small-only { display: table; }
+}
+
+.dropbtn {
+    background-color: #000;
+    color: white;
+    padding: 9px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.mycss
+{
+font-weight:normal;color:#000000;background-color:#FFFFFF;letter-spacing:1.2pt;word-spacing:0pt;font-size:16px;text-align:left;line-height:1.2;
+}
+.mytitle
+{
+font-weight:bold;color:#000000;background-color:#FFFFFF;letter-spacing:1.2pt;word-spacing:0pt;font-size:24px;text-align:left;line-height:1.2;
+}
+
+.dropdown-menu > li > a:hover
+{
+    background: #ff0000;
+    opacity: .5;
+    color: #fff    
+    
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover
+{
+    background: #ff0000;
+    box-shadow: none;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #FF0000;
+    min-width: 160px;
+}
+
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.testtest{
+    font-size: 20;   
+}
+
+.dropdown-menu-right a:hover {background-color: #ff0000}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #ff0000;
+}
+
+.zoom { 
+    width:293px; 
+    height:170px; 
+    display:block; 
+    position:relative; 
+    overflow:hidden; 
+    border:1px solid #ddd; 
+}
+
+    .zoom img { display:none }
+
+        .zoomOverlay {
+            position:absolute;
+            top:0; left:0;
+            bottom:0; right:0;
+            display:none;
+            background-image:url(https://test3.connected.rocks/media/lightgallery/zoom.png);
+            background-repeat:no-repeat;
+            background-position:center;
+        }
+

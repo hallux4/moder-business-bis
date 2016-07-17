@@ -1,0 +1,180 @@
+{% load cms_tags menu_tags sekizai_tags staticfiles i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% page_attribute 'meta_description' %}">
+    <meta name="author" content="Halluxvalgus">
+
+    <title>{% page_attribute 'page_title' %} Modern Business</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/header.css" %}" rel="stylesheet">
+    <link href="{% static "css/nanogallery.min.css" %}" rel="stylesheet">
+    <link href="{% static "swiper/custom-swiper.css" %}" rel="stylesheet">
+    <link href="{% static "swiper/swiper.css" %}" rel="stylesheet">
+    <link href="{% static "css/bread.css" %}" rel="stylesheet">
+    <link href="{% static "openmap/ol.css" %}" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon.ico"/>
+
+    <link href="{% static "dist/css/jquery.mmenu.all.css" %}" rel="stylesheet">
+    <link href="{% static "dist/css/demo.css" %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static "css/modern-business.css" %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    {% render_block "css" %}
+</head>
+<body>
+    <div class="dropdown" style="float:right;">
+        {% get_current_language as LANGUAGES %}
+        <button class="dropbtn" type="button" data-toggle="dropdown"> {{ LANGUAGES }}
+            <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                   {% language_chooser %}
+                </ul>
+        </div>
+    </div>
+
+    {% cms_toolbar %}
+        <div id="page">
+            <div class="header">
+                <a href="#menu"></a>
+            </div>
+        </div>
+
+
+    <!-- Navigation -->
+           <nav id="menu">
+                <ul>
+                    {% show_menu 0 100 100 100 %}
+                </ul>
+                </nav>
+    
+    {% block content %}
+    {% endblock %}
+
+
+
+    <footer>
+        {% static_placeholder "Footer" %}
+    </footer>
+
+    <!-- jQuery -->
+    
+
+
+    <script src="{% static "js/jquery.js" %}"></script>
+    <script src="{% static "dist/js/jquery.mmenu.all.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/stacktable.min.js" %}"></script>
+    <script src="{% static "swiper/swiper.js" %}"></script>
+    <script src="{% static "nano/jquery.nanogallery.min.js" %}"></script>
+
+    <script type="text/javascript">
+            $(function() {
+                $("#menu")
+                    .mmenu({
+                    navbar: {
+                        add: false
+                    },
+                    "searchfield": {
+                                "resultsPanel": true
+                    },
+                    navbars: [{
+                        content: ["searchfield"
+                        ]
+                    }, {
+                        content: ['<a href="mailto:jcottin@ecritel.net" class="fa fa-envelope"></a>', '<a href="https://twitter.com/TheHalluxValgus" target="_blank" class="fa fa-twitter"></a>', '<a href="https://www.facebook.com/Halluxvalgus" target="_blank" class="fa fa-facebook"></a>']
+                    }],
+                    iconPanels: true,
+                    counters: true,
+                    extensions: ["pageshadow", "theme-black",  "widescreen", "multiline", "pagedim-black"]
+                    }).on( 'click',
+                        'a[href^="#/"]',
+                        function() {
+                            //alert( "Thank you for clicking, but that's a demo link." );
+                            return false;
+                        }
+                    );
+            });
+        </script>
+
+    <script type="text/javascript">
+        $('#card-table').cardtable();
+        $('#card-table2').cardtable();
+    </script>
+
+    <script type="text/javascript">
+             var myColorSchemeViewer = {
+        background: 'rgba(1, 1, 1, 0.75)',
+        imageBorder: '15px solid #f8f8f8',
+        imageBoxShadow: '#888 0px 0px 20px',
+        barBackground: '#222',
+        barBorder: '2px solid #111',
+        barColor: '#eee',
+        barDescriptionColor: '#aaa',
+    };
+
+    $("#nanoGallery3")[0].style.fontSize="20px";
+
+     $(document).ready(function () {
+        $("#nanoGallery3").nanoGallery({
+           thumbnailWidth: 'auto',
+            thumbnailHeight: 250,
+            locationHash: false,
+            thumbnailHoverEffect:'borderLighter,imageScaleIn80',
+            breadcrumbAutoHideTopLevel: true,
+        thumbnailLabel: {
+            display: true,
+            align: 'center',
+            display: true,
+            displayDescription: true,
+            hideIcons: true
+            },
+        colorSchemeViewer: myColorSchemeViewer,
+        });
+    });
+        </script>
+
+    
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            // Disable preloading of all images
+            preloadImages: false,
+            // Enable lazy loading
+            lazyLoading: true,
+            loop: true
+        });
+    </script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+
+    
+    {% render_block "js" %}
+
+
+</body>
+
+</html>

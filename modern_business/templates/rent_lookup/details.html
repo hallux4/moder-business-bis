@@ -1,0 +1,170 @@
+{% extends 'rent_lookup/base.html' %}
+{% load staticfiles  %}
+
+{% block rent_lookup_content %}
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/rent_lookup/"/>Departement</a></li>
+        <li><a href="/rent_lookup/{{ residencelist.department.id }}/"/> City</a></li>
+        <li>{{ residencelist.residence.residence_name }}</li>
+    </ul>
+</div>
+
+{%if residencelist.residence.residence_name %}
+<!--<div class="container" style="margin-top: 120px;"></div>-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="well well-xs mytitle">
+                <center>{{ residencelist.residence.residence_name }}</center>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% if residencelist.residence.description %}
+<div class="container">
+    <table class="table table-hover table-bordered mycss">
+        <thead>
+            <tr class="success">
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ residencelist.residence.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+{% if residencelist.images %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% for item in residencelist.images %}
+                    <div class="swiper-slide">
+                        <img data-src={{ item.photo.url  }} class="swiper-lazy">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination swiper-pagination-white"></div>
+                <!-- Navigation -->
+                <div class="swiper-button-next swiper-button-black"></div>
+                <div class="swiper-button-prev swiper-button-black"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if residencelist.logements %}
+<div class="container" style="margin-top: 25px;"></div>
+<div class="container">
+    <table id="card-table" class="table">
+        <thead>
+            <tr class="success  mycss">
+                <th width="20%">房型</th>
+                <th width="20%">面积</th>
+                <th width="20%">月租</th>
+                <th width="20%">押金</th>
+                <th width="20%">材料费</th>
+            </tr>
+        </thead> 
+        {% for item in residencelist.logements %}
+        <tbody>
+            <tr>
+                <td>
+                    {{ item.rent_type }}
+                </td>
+                <td>
+                    {{ item.m2_min }}到 {{ item.m2_max }}平
+                </td>
+                <td>
+                    {{ item.charge_min }}到 {{ item.charge_max }}欧
+                </td>
+                <td>
+                    {{ item.caution }}欧起
+                </td>
+                <td>
+                    {{ item.caution }}欧起
+                </td>
+            </tr>
+        </tbody>
+
+        {% endfor %}
+    </table> 
+</div>
+{% endif %}
+
+{% if residencelist.ecoles %}
+<div class="container" style="margin-top: 25px;"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <table id="card-table2" class="table">
+                <thead>
+                    <tr class="success  mycss">
+                        <th width="20%">直达学校</th>
+                        <th width="20%">Distance</th>
+                        <th width="60%">Way</th>
+                    </tr>
+                </thead> 
+                {% for item in residencelist.ecoles %}
+                <tbody>
+                    <tr>
+                        <td>
+                            {{ item.ecole }}
+                        </td>
+                        <td>
+                            {{ item.distance }}
+                        </td>
+                        <td>
+                            {{ item.waypath }}
+                        </td>
+                    </tr>
+                </tbody>
+
+                {% endfor %}
+            </table> 
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="container">
+<div class="container" style="margin-top: 25px;"></div>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+        <div class="row">
+            <div id="map" class="map"></div>
+        </div>
+    </div>
+</div>
+<script src="{% static "openmap/ol.js" %}"></script>
+
+<script>
+var map = new ol.Map({
+    layers: [
+        new ol.layer.Tile({
+            source: new ol.source.OSM()
+        })
+    ],
+    target: 'map',
+    view: new ol.View({
+        center: ol.proj.fromLonLat( [2.355105, 48.932941]),
+        zoom: 16
+    })
+});
+</script> 
+
+{% endblock %}
