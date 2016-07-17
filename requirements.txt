@@ -21,3 +21,11 @@ html5lib
 Pillow>=2.3
 django-sekizai>=0.7
 six
+djangocms_file
+aldryn_style
+aldryn_boilerplates
+easy_thumbnails
+django-filer
+aldryn_bootstrap3
+django-nested_admin
+django-autoslug
