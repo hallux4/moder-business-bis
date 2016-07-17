@@ -3,11 +3,37 @@
 
 {% block rent_lookup_content %}
 
+<div id="page">
+    <div class="header">
+        <a href="#menu"></a>
+    </div>
+</div>
+
+
+<nav id="menu">
+    <ul>
+        {% for city in cities %}
+        <li><a href="/rent_lookup/{{ city.departement.id  }}/{{ city.id  }}">{{city.city_name}}</a>
+            <ul>
+                {% for residence in city.residence_set.all %}
+                {% with residence.logement_set.all|first as rent_type %}
+                <li><a href="/rent_lookup/{{ city.departement.id  }}/{{ city.id  }}/{{ residence.id  }}">{{ residence.residence_name  }} </br> A partir de {{rent_type.charge_min}} </a></li>
+                {% endwith %}
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+
 <div class="container">
     <ul class="breadcrumb">
-        <li><a href="/">Home</a></li>
-        <li><a href="/rent_lookup/{{ residencelist.departement.id }}"/>Departement</a></li>
-        <li>{{ residencelist.residence.residence_name }}</li>
+        <li><a href="/">{{categories.0.home }}</a></li>
+        <li><a href="/rent_lookup">{{categories.0.recherche}}</a></li>
+       {% with cities.all|first as city %}
+        <li>{{ city.departement.departement_name  }}</li>
+        {% endwith %}
+ 
     </ul>
 </div>
 
@@ -17,19 +43,16 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div id="nanoGallery3">
                 {% for city in cities %}
-                {% for residence in city.residence_set.all %}
-                {% with residence.image_set.all|first as image %}
-                <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngid="1000{{ city.id }}" >{{city.city_name}}</a>       
-
-                {% endwith %}
-                {% with residence.image_set.all|first as images %}    
-                <a href="{{ images.photo.url }}" data-ngthumb="{{ images.photo.url }}" data-ngid="{{ images.id }}"  data-ngdest="/rent_lookup/{{ city.departement.id }}/{{ city.id }}/{{residence.id}}/" data-ngalbumid="1000{{ city.id }}">{{ residence.residence_name }}</a>
-                {% endwith %}
-                {% endfor %}
+                    {% for residence in city.residence_set.all %}
+                        {% with residence.image_set.all|first as image %}
+                            <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngdest="/rent_lookup/{{ city.departement.id }}/{{ city.id }}/" data-ngid="1000{{ city.id }}" >{{city.city_name}}</a>       
+                        {% endwith %}
+                    {% endfor %}
                 {% endfor %}
             </div>
         </div>
     </div>
 </div>
+
 
 {% endblock %}

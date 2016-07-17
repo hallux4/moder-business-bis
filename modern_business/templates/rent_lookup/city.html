@@ -2,11 +2,119 @@
 
 {% block rent_lookup_content %}
 
-<ul>
-    {% for residence in residences %}
-    <li> <a href="/rent_lookup/{{ residence.city.departement.id }}/{{ residence.city.id }}/{{ residence.id }}/">{{ residence.residence_name }}</a></li>
-    {% endfor %}
-</ul> 
+
+<div id="page">
+    <div class="header">
+        <a href="#menu"></a>
+    </div>
+</div>
+
+
+
+
+<nav id="menu">
+    <ul>
+        {% for residence in residences %}
+                    {% with residence.logement_set.all|first as rent_type %}
+                        <li><a href="/rent_lookup/{{ residence.city.departement.id  }}/{{ residence.city.id  }}/{{ residence.id  }}">{{ residence.residence_name  }} </br> A partir de {{rent_type.charge_min}} </a></li>
+                    {% endwith %}
+        {% endfor %}
+    </ul>
+</nav>
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/">{{categories.0.home }}</a></li>
+        <li><a href="/rent_lookup">{{categories.0.recherche}}</a></li>
+       {% with residences.all|first as residence %}
+       <li><a href="/rent_lookup/{{residence.city.departement_id}}">{{ residence.city.departement.departement_name  }}</a></li>
+        <li>{{ residence.city.city_name  }}</li>
+        {% endwith %}
+ 
+    </ul>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div id="nanoGallery3">
+                    {% for residence in residences %}
+                        {% with residence.image_set.all|first as image %}
+                        <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngdest="/rent_lookup/{{ residence.city.departement.id }}/{{ residence.city.id }}/{{ residence.id  }}" data-ngid="1000{{ residence.id }}" >{{residence.residence_name}}</a>       
+                        {% endwith %}
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div id="page">-->
+    <!--<div class="header">-->
+        <!--<a href="#menu"></a>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+<!--<nav id="menu">-->
+    <!--<ul>-->
+        <!--{% for departement in all_department %}-->
+        <!--<li><a href="/rent_lookup/{{ departement.id  }}">{{ departement.departement_name }}</a>-->
+        <!--<ul>-->
+            <!--{% for city in departement.city_set.all %}-->
+            <!--<li><a href="/rent_lookup/{{ departement.id  }}/{{ city.id  }}">{{city.city_name}}</a>-->
+            <!--<ul>-->
+                <!--{% for residence in city.residence_set.all %}-->
+                <!--{% with residence.logement_set.all|first as rent_type %}-->
+                <!--<li><a href="/rent_lookup/{{ departement.id  }}/{{ city.id  }}/{{ residence.id  }}">{{ residence.residence_name  }} </br> A partir de {{rent_type.charge_min}} </a>-->
+                <!--{% endwith %}-->
+                    <!--{% endfor %}-->
+            <!--</ul>-->
+            <!--</li>-->
+            <!--{% endfor %}-->
+        <!--</ul>-->
+        <!--</li>-->
+        <!--{% endfor %}-->
+    <!--</ul>-->
+    <!--</li>-->
+<!--</nav>-->
+
+<!--<div class="container">-->
+    <!--<div class="row">-->
+        <!--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
+            <!--<div id="nanoGallery3">-->
+                <!--{% for departement in all_department %}-->
+                <!--{% with departement.city_set.all|first as city %}-->
+                <!--{% with city.residence_set.all|first as residence %}-->
+                <!--{% with residence.image_set.all|first as image %}-->
+                <!--<a href="{{ image.photo.url }}" data-ngdest="/rent_lookup/{{ city.departement.id }}/{{ residence.id  }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngid="2000{{ city.id }}" >{{residence.residence_name}}</a> -->
+                <!--{% endwith %}-->
+                <!--{% endwith %}-->
+                <!--{% endwith %}-->
+                <!--{% endfor %}-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
+<!--[><ul><]-->
+    <!--[>{% for residence in residences %}<]-->
+    <!--[><li> <a href="/rent_lookup/{{ residence.city.departement.id }}/{{ residence.city.id }}/{{ residence.id }}/">{{ residence.residence_name }}</a></li><]-->
+    <!--[>{% endfor %}<]-->
+<!--[></ul> <]-->
 
 
 

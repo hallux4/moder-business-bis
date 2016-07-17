@@ -1,7 +1,7 @@
 from django.contrib import admin
 import nested_admin
 
-from .models import Department, City, Residence, Ecole, Logement, Image
+from .models import Department, City, Residence, Ecole, Logement, Image, Categorie
 
 class CityInline(nested_admin.NestedTabularInline):
     model = City
@@ -37,7 +37,7 @@ class ResidenceAdmin(nested_admin.NestedModelAdmin):
 admin.site.register(Department, DepartmentAdmin)
 admin.site.register(City)
 admin.site.register(Residence, ResidenceAdmin)
-#admin.site.register(Ecole, EcoleAdmin)
+admin.site.register(Categorie)
 admin.site.register(Ecole)
 admin.site.register(Logement)
 admin.site.register(Image)
