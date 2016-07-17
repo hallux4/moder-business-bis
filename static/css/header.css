@@ -18,8 +18,16 @@
   .stacktable.small-only { display: table; }
 }
 
+.centered-and-cropped { object-fit: cover; } 
+
+.bg-home {
+
+    height: 120px;
+    width: 100%;
+}
+
 .dropbtn {
-    background-color: #000;
+    background-color: #222;
     color: white;
     padding: 9px;
     font-size: 16px;
