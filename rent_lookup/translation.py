@@ -9,6 +9,7 @@ class DepartmentTranslationOptions(TranslationOptions):
         fields = ('departement_name',)
 #        fallback_values = _('-- sorry, no translation provided --')
 
+
 class CityTranslationOptions(TranslationOptions):
         fields = ('city_name',)
 #        fallback_values = _('-- sorry, no translation provided --')
