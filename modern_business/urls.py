@@ -7,11 +7,13 @@ from django.conf.urls import *  # NOQA
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.http import HttpResponse
 
 admin.autodiscover()
 
 urlpatterns = i18n_patterns('',
-    url(r'^admin/', include(admin.site.urls)),  # NOQA
+    (r'^robots.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", content_type="text/plain")),
+    url(r'^admin-lecheng-location/', include(admin.site.urls)),  # NOQA
     url(r'^_nested_admin/', include('nested_admin.urls')),
     #    url(r'^polls/', include('polls.urls', namespace='polls')),
     url(r'^rent_lookup/', include('rent_lookup.urls')),

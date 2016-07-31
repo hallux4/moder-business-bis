@@ -1,25 +1,58 @@
-
+{% extends "base.html" %}
 {% load cms_tags menu_tags sekizai_tags staticfiles i18n %}
 
 
 {% block content %}
 
+<div id="page">
+  <div class="header">
+  <a id="hamburger">
+    <span class="top-bar"></span>
+    <span class="middle-bar"></span>
+    <span class="bottom-bar"></span>
+  </a>
+
+    <a href="#menu"></a>
+  </div>
+</div>
+
+
+<!-- Navigation -->
+<nav id="menu">
+<ul>
+  {% show_menu 0 100 100 100 %}
+</ul>
+</nav>
+
 <style type="text/css">
 
-    body {
-          background-image:url('https://test5.connected.rocks/media/bg/bg.gif');
-          width: 100%;
-          height: 100%;
-        }
+  body {
+    background-image:url('{{ MEDIA_URL  }}bg/bg.gif');
+    width: 100%;
+    height: 100%;
+  }
+
+  #arrow-img2 {
+    position: fixed;
+    left: 30px;
+    top: 40%;
+
+  }
+
 
 </style>
+
+<div id="arrow-img2">
+  <img width="60%;" src="{{ MEDIA_URL  }}bg/404.jpg">
+</div>
+
 
 {% endblock content %}
 
 
 
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 </head>
 

@@ -18,22 +18,120 @@
   .stacktable.small-only { display: table; }
 }
 
-.centered-and-cropped { object-fit: cover; } 
-
-.bg-home {
-
-    height: 120px;
-    width: 100%;
+@-webkit-keyframes arrow-jump {
+  100%   { opacity: 0;}
+  0% { opacity: 1; 
+        -webkit-transform: translateX(10px);
+        -moz-transform: translateX(10px);
+        -0-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+  
 }
 
-.dropbtn {
+#hamburger {
+   border: 1px solid #fff;
+   display: block;
+   width: 30px;
+   padding: 5px 10px;
+}
+#hamburger span {
+   background: #fff;
+   display: block;
+   height: 3px;
+   margin: 5px 0;
+}
+
+html.mm-opened #hamburger span.top-bar {
+   transform: rotate( 45deg );
+   top: 7px;
+}
+html.mm-opened #hamburger span.middle-bar {
+   opacity: 0;
+}
+html.mm-opened #hamburger span.bottom-bar {
+   transform: rotate( -45deg );
+   top: -7px;
+}
+
+
+
+#hamburger {
+   overflow: hidden;
+}
+#hamburger span {
+   position: relative;
+   transform: rotate( 0 );
+   top: 0;
+   left: 0;
+   opacity: 1;
+
+   transition: none 0.5s ease;
+   transition-property: transform, top, left, opacity;
+}
+
+html.mm-opened #hamburger span.middle-bar {
+   left: -40px;
+}
+
+#arrow-img {
+  position: absolute;
+  left: 40px;
+  top: 40px;
+}
+
+#arrow {
+  -webkit-animation: arrow-jump 1s infinite; /* Safari 4+ */
+  -moz-animation:    arrow-jump 1s infinite; /* Fx 5+ */
+  -o-animation:      arrow-jump 1s infinite; /* Opera 12+ */
+  animation:         arrow-jump 1s infinite; /* IE 10+, Fx 29+ */
+}
+
+  .bg-4 {
+      background-color: #222; /* Black Gray */
+      color: #fff;
+      z-index:2;
+  }
+  .bg-5 {
+      background-color: #222; /* Black Gray */
+      color: #222;
+  }
+.container-fluid {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    position: fixed;
+  width: 100%;
+  bottom: 0;
+  margin: 0;
+  }
+.container-fluid-up {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    position: absolute;
+  width: 100%;
+  top: 0;
+  margin: 0;
+  }
+
+   .jumbotron {
+    color: white;
+    text-shadow: #444 0 1px 1px;
+    background:transparent;
+  }
+
+ .dropbtn {
     background-color: #222;
     color: white;
     padding: 9px;
     font-size: 16px;
     border: none;
     cursor: pointer;
-}
+    height: 40px;
+      left: 60%;
+      position: absolute;
+      top: -45px;
+      width: 100px;}
+
 
 .mycss
 {
@@ -60,8 +158,11 @@ font-weight:bold;color:#000000;background-color:#FFFFFF;letter-spacing:1.2pt;wor
 
 
 .dropdown {
-    position: relative;
+    position: absolute;
     display: inline-block;
+    left: 60%;
+    top: 45px;
+    z-index: 2;
 }
 
 .dropdown-content {

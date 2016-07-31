@@ -5,31 +5,58 @@
 
 {% block content %}
 
-        <div id="page">
-            <div class="header">
-                <a href="#menu"></a>
-            </div>
-        </div>
+<header class="container-fluid-up bg-5">
+.
+</header>
 
 
-        <!-- Navigation -->
-        <nav id="menu">
-            <ul>
-                {% show_menu 0 100 100 100 %}
-            </ul>
-        </nav>
+
+<div class="bg"></div>
+<div class="jumbotron text-center">
+  <h1>{% placeholder 'company' or %}Company{% endplaceholder %}</h1>
+  <p>{% placeholder texte or %}{% endplaceholder %}</p>
+  <form class="form-inline">
+  </form>
+</div>
 
 
+<style>  
+  .bg {
+    background: url('{{MEDIA_URL}}filer_public_thumbnails/filer_public/56/4e/564ea047-2600-405f-87e4-465e1c59b6ce/header.png') no-repeat center center;
+    position: fixed;
+    width: 100%;
+    height: 550px; /*same height as jumbotron */
+    top:0;
+    left:0;
+    z-index: -1;
+  }
+  </style>
+
+<!--        <div id="page">
+  <div class="header">
+    <a href="#menu"></a>
+  </div>
+</div>
+
+
+<nav id="menu">
+<ul>
+  {% show_menu 0 100 100 100 %}
+</ul>
+</nav>
+
+-->
 
 {% placeholder content or %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <br>
-                <br>
-                <p>Aucun element n'a ete ajoute. il s'agit du texte par defaut.Aucun element n'a ete ajoute. il s'agit du texte par defaut.Aucun element n'a ete ajoute. il s'agit du texte par defaut.Aucun element n'a ete ajoute. il s'agit du texte par defaut.Aucun element n'a ete ajoute. il s'agit du texte par defaut.Aucun element n'a ete ajoute. il s'agit du texte par defaut.Aucun element n'a ete ajoute. il s'agit du texte par defaut.</p>
-            </div>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <br>
+      <br>
+      <p>Aucun element n'a ete ajoute. il s'agit du texte par defaut.Aucun element n'a ete ajoute. il s'agit du texte par defaut.Aucun element n'a ete ajoute. il s'agit du texte par defaut.Aucun element n'a ete ajoute. il s'agit du texte par defaut.Aucun element n'a ete ajoute. il s'agit du texte par defaut.Aucun element n'a ete ajoute. il s'agit du texte par defaut.Aucun element n'a ete ajoute. il s'agit du texte par defaut.</p>
     </div>
-    {% endplaceholder %}
-{% endblock content %}
+  </div>
+</div>
+{% endplaceholder %}
+
+      {% endblock content %}

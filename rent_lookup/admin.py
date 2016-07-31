@@ -3,10 +3,6 @@ import nested_admin
 
 from .models import Department, City, Residence, Ecole, Logement, Image, Categorie
 
-class CityInline(nested_admin.NestedTabularInline):
-    model = City
-    extra = 3
-
 class ImageInline(nested_admin.NestedTabularInline):
     model = Image
     extra = 0
@@ -18,9 +14,6 @@ class LogementInline(nested_admin.NestedStackedInline):
 class EcoleInline(nested_admin.NestedTabularInline):
     model = Ecole
     extra = 0
-
-class DepartmentAdmin(nested_admin.NestedModelAdmin):
-    inlines = [CityInline]
 
 #class EcoleAdmin(nested_admin.NestedModelAdmin):
 #    inlines = [GeoInline]
@@ -34,7 +27,7 @@ class ResidenceAdmin(nested_admin.NestedModelAdmin):
     ]
 
 
-admin.site.register(Department, DepartmentAdmin)
+admin.site.register(Department)
 admin.site.register(City)
 admin.site.register(Residence, ResidenceAdmin)
 admin.site.register(Categorie)
