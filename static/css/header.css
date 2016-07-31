@@ -14,24 +14,36 @@
 .stacktable.small-only { display: none; }
 
 @media (max-width: 800px) {
-  .stacktable.large-only { display: none; }
-  .stacktable.small-only { display: table; }
+    .stacktable.large-only { display: none; }
+    .stacktable.small-only { display: table; }
 }
 
 @-webkit-keyframes arrow-jump {
-  100%   { opacity: 0;}
-  0% { opacity: 1; 
+    100%   { opacity: 0;}
+    0% { opacity: 1; 
         -webkit-transform: translateX(10px);
         -moz-transform: translateX(10px);
         -0-transform: translateX(10px);
         transform: translateX(10px);
     }
-  
+
 }
 
 .btn {
 
-    background-color: #D24D57;
+    background: #1969cc;
+    background-image: -webkit-linear-gradient(top, #1969cc, #3a4ecf);
+    background-image: -moz-linear-gradient(top, #1969cc, #3a4ecf);
+    background-image: -ms-linear-gradient(top, #1969cc, #3a4ecf);
+    background-image: -o-linear-gradient(top, #1969cc, #3a4ecf);
+    background-image: linear-gradient(to bottom, #1969cc, #3a4ecf);
+    -webkit-box-shadow: 0px 1px 3px #666666;
+    -moz-box-shadow: 0px 1px 3px #666666;
+    box-shadow: 0px 1px 3px #666666;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
 }
 
 a.animated-button:link, a.animated-button:visited {
@@ -41,10 +53,8 @@ a.animated-button:link, a.animated-button:visited {
     padding: 14px 15px;
     color: #fff;
     font-size:14px;
-    font-weight: bold;
     text-align: center;
     text-decoration: none;
-    text-transform: uppercase;
     overflow: hidden;
     letter-spacing: .08em;
     border-radius: 0;
@@ -69,7 +79,20 @@ a.animated-button:link:after, a.animated-button:visited:after {
 }
 a.animated-button:link:hover, a.animated-button:visited:hover {
     color: #FFF;
-    text-shadow: none;
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    overflow: hidden;
+     letter-spacing: .08em;
+     text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+     -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+     -o-transition: all 0.5s ease;
+     transition: all 0.5s ease;
+
 }
 a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
     height: 450%;
@@ -82,126 +105,110 @@ a.animated-button:link, a.animated-button:visited {
     color: #222;
     font-size:14px;
     border-radius: 0;
-    font-weight: bold;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
     letter-spacing: .08em;
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
-a.animated-button.victoria-four {
-    border: 2px solid #D24D57;
-}
-a.animated-button.victoria-four:after {
-    background: #D24D57;
-    opacity: .5;
-    -moz-transform: translateY(-50%) translateX(-50%) rotate(90deg);
-    -ms-transform: translateY(-50%) translateX(-50%) rotate(90deg);
-    -webkit-transform: translateY(-50%) translateX(-50%) rotate(90deg);
-    transform: translateY(-50%) translateX(-50%) rotate(90deg);
-}
-a.animated-button.victoria-four:hover:after {
-    opacity: 1;
-    height: 600% !important;
-}
 
 #hamburger {
-   border: 1px solid #fff;
-   display: block;
-   width: 30px;
-   padding: 5px 10px;
+    border: 1px solid #fff;
+    display: block;
+    width: 30px;
+    padding: 5px 10px;
 }
 #hamburger span {
-   background: #fff;
-   display: block;
-   height: 3px;
-   margin: 5px 0;
+    background: #fff;
+    display: block;
+    height: 3px;
+    margin: 5px 0;
 }
 
 html.mm-opened #hamburger span.top-bar {
-   transform: rotate( 45deg );
-   top: 7px;
+    transform: rotate( 45deg );
+    top: 7px;
 }
 html.mm-opened #hamburger span.middle-bar {
-   opacity: 0;
+    opacity: 0;
 }
 html.mm-opened #hamburger span.bottom-bar {
-   transform: rotate( -45deg );
-   top: -7px;
+    transform: rotate( -45deg );
+    top: -7px;
 }
 
 
 
 #hamburger {
-   overflow: hidden;
+    overflow: hidden;
 }
 #hamburger span {
-   position: relative;
-   transform: rotate( 0 );
-   top: 0;
-   left: 0;
-   opacity: 1;
+    position: relative;
+    transform: rotate( 0 );
+    top: 0;
+    left: 0;
+    opacity: 1;
 
-   transition: none 0.5s ease;
-   transition-property: transform, top, left, opacity;
+    transition: none 0.5s ease;
+    transition-property: transform, top, left, opacity;
 }
 
 html.mm-opened #hamburger span.middle-bar {
-   left: -40px;
+    left: -40px;
 }
 
 #arrow-img {
-  position: absolute;
-  left: 40px;
-  top: 40px;
+    position: absolute;
+    left: 40px;
+    top: 40px;
 }
 
 #arrow {
-  -webkit-animation: arrow-jump 1s infinite; /* Safari 4+ */
-  -moz-animation:    arrow-jump 1s infinite; /* Fx 5+ */
-  -o-animation:      arrow-jump 1s infinite; /* Opera 12+ */
-  animation:         arrow-jump 1s infinite; /* IE 10+, Fx 29+ */
+    -webkit-animation: arrow-jump 1s infinite; /* Safari 4+ */
+    -moz-animation:    arrow-jump 1s infinite; /* Fx 5+ */
+    -o-animation:      arrow-jump 1s infinite; /* Opera 12+ */
+    animation:         arrow-jump 1s infinite; /* IE 10+, Fx 29+ */
 }
 
-  .bg-4 {
-      background-color: #222; /* Black Gray */
-      color: #fff;
-      z-index:2;
-  }
-  .bg-5 {
-      background-color: #222; /* Black Gray */
-      color: #222;
-  }
+.bg-4 {
+    background-color: #222; /* Black Gray */
+    color: #fff;
+    z-index:2;
+}
+.bg-5 {
+    background-color: #222; /* Black Gray */
+    color: #222;
+}
 .container-fluid {
-      padding-top: 10px;
-      padding-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     position: fixed;
-  width: 100%;
-  bottom: 0;
-  margin: 0;
-  }
+    width: 100%;
+    bottom: 0;
+    margin: 0;
+}
 .container-fluid-up {
-      padding-top: 10px;
-      padding-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     position: absolute;
-  width: 100%;
-  top: 0;
-  margin: 0;
-  }
+    width: 100%;
+    top: 0;
+    margin: 0;
+}
 
-   .jumbotron {
+.jumbotron {
     color: white;
     text-shadow: #444 0 1px 1px;
     background:transparent;
-  }
+}
 
- .dropbtn {
+.dropbtn {
     background-color: #222;
     color: white;
     padding: 9px;
@@ -209,19 +216,19 @@ html.mm-opened #hamburger span.middle-bar {
     border: none;
     cursor: pointer;
     height: 40px;
-      left: 60%;
-      position: absolute;
-      top: -45px;
-      width: 100px;}
+    left: 60%;
+    position: absolute;
+    top: -45px;
+width: 100px;}
 
 
 .mycss
 {
-font-weight:normal;color:#000000;background-color:#FFFFFF;letter-spacing:1.2pt;word-spacing:0pt;font-size:16px;text-align:left;line-height:1.2;
+    font-weight:normal;color:#000000;background-color:#FFFFFF;letter-spacing:1.2pt;word-spacing:0pt;font-size:16px;text-align:left;line-height:1.2;
 }
 .mytitle
 {
-font-weight:bold;color:#000000;background-color:#FFFFFF;letter-spacing:1.2pt;word-spacing:0pt;font-size:24px;text-align:left;line-height:1.2;
+    font-weight:bold;color:#000000;background-color:#FFFFFF;letter-spacing:1.2pt;word-spacing:0pt;font-size:24px;text-align:left;line-height:1.2;
 }
 
 .dropdown-menu > li > a:hover
@@ -229,7 +236,7 @@ font-weight:bold;color:#000000;background-color:#FFFFFF;letter-spacing:1.2pt;wor
     background: #ff0000;
     opacity: .5;
     color: #fff    
-    
+
 }
 
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover
