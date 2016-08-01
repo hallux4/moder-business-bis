@@ -40,16 +40,16 @@
     padding-top: 20px;
     overflow: hidden;
     background: #e8b63f;
-      background-image: -webkit-linear-gradient(top, #e69640, #ea753f);
-        background-image: -moz-linear-gradient(top, #e69640, #ea753f);
-          background-image: -ms-linear-gradient(top, #e69640, #ea753f);
-            background-image: -o-linear-gradient(top, #e69640, #ea753f);
-              background-image: linear-gradient(to bottom, #e69640, #ea753f);
+    background-image: -webkit-linear-gradient(top, #e69640, #ea753f);
+    background-image: -moz-linear-gradient(top, #e69640, #ea753f);
+    background-image: -ms-linear-gradient(top, #e69640, #ea753f);
+    background-image: -o-linear-gradient(top, #e69640, #ea753f);
+    background-image: linear-gradient(to bottom, #e69640, #ea753f);
 }
 
 .well {
-        border: 1px solid #222;
-        color: black;
+    border: 1px solid #222;
+    color: black;
 }
 
 .btn {
@@ -102,19 +102,19 @@ a.animated-button:link:after, a.animated-button:visited:after {
 }
 a.animated-button:link:hover, a.animated-button:visited:hover {
     color: #FFF;
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
     overflow: hidden;
-     letter-spacing: .08em;
-     text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
-     -webkit-transition: all 0.5s ease;
-     -moz-transition: all 0.5s ease;
-     -o-transition: all 0.5s ease;
-     transition: all 0.5s ease;
+    letter-spacing: .08em;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 
 }
 a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
