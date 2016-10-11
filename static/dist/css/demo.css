@@ -13,7 +13,7 @@ body {
     font-family: Arial, Helvetica, Verdana;
     font-size: 14px;
     line-height: 22px;
-    color: #666;
+    color: #000;
     min-height: 100%;
     position: relative;
     -webkit-text-size-adjust: none;
@@ -105,7 +105,7 @@ nav:not(.mm-menu)
 .header,
 .footer
 {
-    background: #222;
+    background: #000;
     font-size: 16px;
     font-weight: bold;
     color: #fff;
@@ -247,8 +247,7 @@ li a:hover {
 
 .mm-listview .mm-next
 {
-    /*background: rgba(3,2,1,0)*/
-    background: rgba(255,0,0,.2)
+    background: rgba(3,2,1,0)
 }
 .mm-menu.mm-theme-black .mm-listview>li .mm-arrow:after, .mm-menu.mm-theme-black .mm-listview>li .mm-next:after
 {
@@ -276,7 +275,15 @@ em.mm-counter
 
 .mm-listview > li > a:hover {
                 padding-left: 40px;
-                        }
+}
+
+
+em.mm-counter + a.mm-next:hover{
+    background: rgba(255,0,0,.5);
+    padding-left: 40px;
+    color:#000;
+}
+
 .mm-listview > li > a {
     font-weight: normal;
     font-size: 16px;

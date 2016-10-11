@@ -40,6 +40,15 @@
 
     {% render_block "css" %}
   </head>
+<style>
+body {
+    background-image: url("{{MEDIA_URL}}filer_public/header2.jpg");
+background-size: 100% 100%;
+background-attachment: fixed;
+background-repeat: no-repeat;
+}
+</style>
+
   <body>
 
 
@@ -54,6 +63,7 @@
         {% language_chooser %}
       </ul>
     </div>
+
 
   {% block content %}
   {% endblock %}
