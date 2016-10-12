@@ -2,7 +2,27 @@ html, body
 {
     padding: 0;
     margin: 0;
+
 }
+
+
+td.st-key{
+    font-weight: bold;
+    font-size:16px;
+    text-align: center;
+    vertical-align: bottom;
+    font-family: bariol_regular-webfont;
+}
+
+td.st-val{
+    font-weight: normal;
+    font-size:16px;
+    color: black;
+    text-align: center;
+    vertical-align: bottom;
+    font-family: bariol_regular-webfont;
+}
+
 html
 {
     height: 100%;
@@ -10,7 +30,7 @@ html
 
 body {
     background-color: #fff;
-    font-family: Arial, Helvetica, Verdana;
+    font-family:'bariol_regular-webfont';
     font-size: 14px;
     line-height: 22px;
     color: #000;
@@ -22,13 +42,24 @@ body *
 {
     text-shadow: none;
 }
-h1, h2, h3, h4, h5, h6
+h1, h2, h3, h5, h6
 {
     line-height: 1;
     font-weight: bold;
     margin: 20px 0 10px 0;
 }
-h1, h2, h3
+
+  h4 {
+  
+        line-height: 1;
+          font-weight: normal;
+      
+        }
+
+h1 {
+    font-size:65px;
+}
+h2, h3
 {
     font-size: 18px;
 }

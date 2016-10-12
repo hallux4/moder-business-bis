@@ -7,7 +7,6 @@
 .st-val { width: 49%; padding-left: 1%; }
 
 
-
 /* RESPONSIVE EXAMPLE */
 
 .stacktable.large-only { display: table; }
@@ -36,7 +35,7 @@
 }
 
 .btn {
-
+    font-family: bariol_regular-webfont;
     background: #1969cc;
     background-image: -webkit-linear-gradient(top, #1969cc, #3a4ecf);
     background-image: -moz-linear-gradient(top, #1969cc, #3a4ecf);
@@ -109,7 +108,7 @@ a.animated-button:link, a.animated-button:visited {
     margin: 30px auto 0;
     padding: 14px 15px;
     color: #000;
-    font-size:14px;
+    font-size:40px;
     border-radius: 0;
     text-align: center;
     text-decoration: none;
