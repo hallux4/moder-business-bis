@@ -16,13 +16,13 @@ class ResidenceBag(object):
 def department(request, department_id):
     #all_department = Department.objects.all()
     #return render(request,'rent_lookup/globalize.html',{'all_department': all_department})
-    cities = City.objects.filter(departement=department_id)
+    cities = City.objects.filter(departement=department_id).order_by("city_name")
     categories = Categorie.objects.all()
     return render(request,'rent_lookup/department.html', {'cities': cities, 'categories': categories})
 
 
 def city(request, department_id, city_id):
-    residences = Residence.objects.filter(city=city_id)
+    residences = Residence.objects.filter(city=city_id).order_by("residence_name")
     categories = Categorie.objects.all()
     return render(request,'rent_lookup/city.html', {'residences': residences, 'categories': categories})
 
@@ -34,6 +34,6 @@ def details(request, department_id, city_id, residence_id):
 
 
 def globalize(request):
-    all_department = Department.objects.all().order_by('departement_name')
+    all_department = list(Department.objects.all().order_by("departement_name"))
     categories = Categorie.objects.all()
     return render(request,'rent_lookup/globalize.html',{'all_department': all_department, 'categories': categories})
