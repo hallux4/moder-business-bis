@@ -1,5 +1,4 @@
 
-
 .stacktable { width: 100%; }
 .st-head-row { padding-top: 1em; }
 .st-head-row.st-head-row-main { font-size: 1.5em; padding-top: 0; }
@@ -17,17 +16,30 @@
     .stacktable.small-only { display: table; }
 }
 
-@-webkit-keyframes arrow-jump {
-    100%   { opacity: 0;}
-    0% { opacity: 1; 
-        -webkit-transform: translateX(10px);
-        -moz-transform: translateX(10px);
-        -0-transform: translateX(10px);
-        transform: translateX(10px);
-    }
-
+#header {
+    margin: 0 auto;
+    max-width:1200px;
 }
 
+#header2 {
+    margin: 0 auto;
+    max-width:1200px;
+}
+
+.navbar-header {
+    float: none;
+}
+
+#container-head {
+    margin-left:0;
+    padding-left:0;
+}
+
+
+.navbar  {
+    text-align: center;
+    border-radius: 0px;
+}
 
 .well {
     border: 1px solid #000;
@@ -123,94 +135,18 @@ a.animated-button:link, a.animated-button:visited {
 }
 
 
-#hamburger {
-    border: 1px solid #fff;
-    display: block;
-    width: 30px;
-    padding: 5px 10px;
-}
-#hamburger span {
-    background: #fff;
-    display: block;
-    height: 3px;
-    margin: 5px 0;
-}
-
-html.mm-opened #hamburger span.top-bar {
-    transform: rotate( 45deg );
-    top: 7px;
-}
-html.mm-opened #hamburger span.middle-bar {
-    opacity: 0;
-}
-html.mm-opened #hamburger span.bottom-bar {
-    transform: rotate( -45deg );
-    top: -7px;
-}
-
-
-
-#hamburger {
-    overflow: hidden;
-}
-#hamburger span {
-    position: relative;
-    transform: rotate( 0 );
-    top: 0;
-    left: 0;
-    opacity: 1;
-
-    transition: none 0.5s ease;
-    transition-property: transform, top, left, opacity;
-}
-
-html.mm-opened #hamburger span.middle-bar {
-    left: -40px;
-}
-
-#arrow-img {
-    position: absolute;
-    left: 40px;
-    top: 40px;
-}
-
-#arrow {
-    -webkit-animation: arrow-jump 1s infinite; /* Safari 4+ */
-    -moz-animation:    arrow-jump 1s infinite; /* Fx 5+ */
-    -o-animation:      arrow-jump 1s infinite; /* Opera 12+ */
-    animation:         arrow-jump 1s infinite; /* IE 10+, Fx 29+ */
-}
-
 .bg-4 {
-    background-color: #000; /* Black Gray */
+    background-color: #111;
     color: #fff;
     z-index:2;
 }
-.bg-5 {
-    background-color: #000; /* Black Gray */
-    color: #000;
-}
-.container-fluid {
+.container-fluid-down {
     padding-top: 10px;
     padding-bottom: 10px;
     position: fixed;
     width: 100%;
     bottom: 0;
     margin: 0;
-}
-.container-fluid-up {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    margin: 0;
-}
-
-.jumbotron {
-    color: white;
-    text-shadow: #444 0 1px 1px;
-    background:transparent;
 }
 
 .dropbtn {
@@ -251,13 +187,13 @@ width: 100px;}
 }
 
 
-.dropdown {
+/*.dropdown {
     position: absolute;
     display: inline-block;
     left: 60%;
     top: 45px;
     z-index: 2;
-}
+}*/
 
 .dropdown-content {
     display: none;

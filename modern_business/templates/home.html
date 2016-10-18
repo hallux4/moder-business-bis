@@ -5,42 +5,6 @@
 
 {% block content %}
 
-<header class="container-fluid-up bg-5">
-.
-</header>
-
-
-
-<div class="bg"></div>
-<div class="jumbotron text-center">
-  <h1>{% placeholder 'company' or %}Company{% endplaceholder %}</h1>
-  <p>{% placeholder texte or %}{% endplaceholder %}</p>
-  <form class="form-inline">
-  </form>
-</div>
-
-<style>
-body {
-background-image: url("{{MEDIA_URL}}filer_public/header2.jpg");
-background-size: 100% 100%;
-background-attachment: fixed;
-background-repeat: no-repeat;
-}
-</style>
-
-
-<style>
-    <!--/*.bg {
-    background: url('{{MEDIA_URL}}filer_public/header1.jpg') no-repeat center center;
-    position: fixed;
-    width: 100%;
-    height: 550px;
-    top:0;
-    left:0;
-    z-index: -1;
-    }*/-->
-</style>
-
 <style>
   
   @font-face {
@@ -53,23 +17,7 @@ background-repeat: no-repeat;
 .jumbotron h1 {
         font-family:'bariol_regular-webfont';
 }
-
 </style>
-
-<!--        <div id="page">
-  <div class="header">
-    <a href="#menu"></a>
-  </div>
-</div>
-
-
-<nav id="menu">
-<ul>
-  {% show_menu 0 100 100 100 %}
-</ul>
-</nav>
-
--->
 
 {% placeholder content or %}
 <div class="container">

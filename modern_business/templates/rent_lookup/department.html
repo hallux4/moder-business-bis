@@ -4,43 +4,14 @@
 
 {% block rent_lookup_content %}
 
-<div id="page">
-    <div class="header">
-  <a id="hamburger">
-    <span class="top-bar"></span>
-    <span class="middle-bar"></span>
-    <span class="bottom-bar"></span>
-  </a>
-
-        <a href="#menu"></a>
-    </div>
-</div>
-
 <div class="container" style="margin-top: 35px;"></div>
 
-<nav id="menu">
-    <ul>
-  {% show_menu 0 100 100 100 %}
-        {% for city in cities %}
-        <li><a href="/rent_lookup/{{ city.departement.id  }}/{{ city.id  }}">{{city.city_name}}</a>
-            <ul>
-                {% for residence in city.residence_set.all %}
-                {% with residence.logement_set.all|first as rent_type %}
-                <li><a href="/rent_lookup/{{ city.departement.id  }}/{{ city.id  }}/{{ residence.id  }}">{{ residence.residence_name  }} </br> >> {{rent_type.charge_min}} €</a></li>
-                {% endwith %}
-                {% endfor %}
-            </ul>
-        </li>
-        {% endfor %}
-    </ul>
-</nav>
 
 <div class="container">
     <ul class="breadcrumb">
         <li><a href="/">{{categories.0.home }}</a></li>
         <li><a href="/rent_lookup">{{categories.0.recherche}}</a></li>
        {% with cities.all|first as city %}
-        <li>{{ city.departement.departement_name  }}</li>
         {% endwith %}
  
     </ul>
@@ -63,5 +34,6 @@
     </div>
 </div>
 
+<div class="container" style="margin-bottom: 150px;"></div>
 
 {% endblock %}

@@ -3,19 +3,19 @@
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 
-@python_2_unicode_compatible
-class Department(models.Model):
-    departement_name = models.CharField(max_length=40)
-    def __str__(self):
-        return self.departement_name
+#@python_2_unicode_compatible
+#class Department(models.Model):
+#    departement_name = models.CharField(max_length=40)
+#    def __str__(self):
+#        return self.departement_name
 
 @python_2_unicode_compatible
 class City(models.Model):
-    departement = models.ForeignKey(Department, on_delete=models.CASCADE)
+#    departement = models.ForeignKey(Department, on_delete=models.CASCADE)
     city_name = models.CharField(max_length=40)
 
     def __str__(self):
-        return "%s, %s" % (self.city_name, self.departement)
+        return "%s" % (self.city_name)
 
 @python_2_unicode_compatible
 class Residence(models.Model):
