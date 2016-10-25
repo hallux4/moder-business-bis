@@ -1,0 +1,20 @@
+{% extends 'annonces/base.html' %}
+{% load cms_tags menu_tags sekizai_tags staticfiles i18n %}
+
+{% block annonces_content %}
+
+{% get_current_language as LANGUAGE_CODE %}
+{% get_language_info for LANGUAGE_CODE as lang %}
+{% for annonce in annonces %}
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="well"> {{ annonce.date  }}   {{ annonce.annonces_name  }}</br></br> {{ annonce.description  }} <a  href="/{{lang.code}}{{annonce.link_url}}" target=_blank> {{ categories.0.more  }}</a></div>
+
+
+    <div class="container" style="margin-bottom: 20px;"></div>
+</div>
+{% endfor %}
+
+
+<div class="container" style="margin-bottom: 150px;"></div>
+
+{% endblock %}

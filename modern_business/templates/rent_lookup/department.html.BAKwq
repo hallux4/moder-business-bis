@@ -1,0 +1,178 @@
+
+{% extends 'rent_lookup/base.html' %}
+{% load cms_tags menu_tags sekizai_tags staticfiles i18n %}
+
+{% block rent_lookup_content %}
+
+<div class="container" style="margin-top: 35px;"></div>
+
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/">{{categories.0.home }}</a></li>
+        <li><a href="/rent_lookup">{{categories.0.recherche}}</a></li>
+        {% with cities.all|first as city %}
+        {% endwith %}
+
+    </ul>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div id="nanoGallery3">
+                {% for city in cities %}
+                {% for residence in city.residence_set.all %}
+                {% with residence.image_set.all|first as image %}
+                <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngdest="/rent_lookup/{{ city.departement.id }}/{{ city.id }}/" data-ngid="1000{{ city.id }}" >{{city.city_name}}</a> 
+                {% endwith %}
+                {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div id="nanoGalleryMLN" ></div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{% static "js/jquery.js" %}"></script>
+<script src="{% static "nano/jquery.nanogallery.min.js" %}"></script>
+
+<script type="text/javascript">
+
+// ##################################################################################################################
+// ##### Multi-level navigation (API method) ##### 
+// ##################################################################################################################      
+var contentGalleryMLN=[
+{
+    src: 'image_01.jpg', // image url
+    srct: 'image_01ts.jpg',	// thumbnail url
+    title: 'image 01 TEST', // thumbnail title
+    ID:2
+},
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 02',
+    ID:3 },
+{ src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'album 1',
+    ID:103,	kind:'album' },
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'album 2',
+    ID:104,	kind:'album' },
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'album 3',
+    ID:105, albumID:103,	kind:'album' },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 03',
+    ID:4 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 04',
+    ID:5 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 05',
+    ID:6 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 06',
+    ID:7 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 07',
+    ID:8 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 08',
+    ID:9 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 09',
+    ID:10 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 10',
+    ID:11 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 10',
+    ID:12 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 11',
+    ID:13 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 12',
+    ID:14 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 13',
+    ID:15 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 14',
+    ID:16 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 15',
+    ID:17 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 16',
+    ID:18 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 17',
+    ID:19 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 18',
+    ID:20 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 19',
+    ID:21 },
+{ src: 'image_02.jpg', srct: 'image_02ts.jpg', title: 'image 20',
+    ID:22 },
+{ src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 1a',
+    ID:23, albumID:103	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 1b',
+    ID:24, albumID:103	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 1c',
+    ID:25, albumID:103	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 1d',
+    ID:26, albumID:103	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 1e',
+    ID:27, albumID:103 },
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 1f',
+    ID:28, albumID:103	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2a',
+    ID:29, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2b',
+    ID:30, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2c',
+    ID:31, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2d',
+    ID:32, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2e',
+    ID:33, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2f',
+    ID:34, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2g',
+    ID:35, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2h',
+    ID:36, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2i',
+    ID:37, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2j',
+    ID:38, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2k',
+    ID:39, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2l',
+    ID:40, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2m',
+    ID:41, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2n',
+    ID:42, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2o',
+    ID:43, albumID:104	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2n',
+    ID:44, albumID:105	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2n',
+    ID:45, albumID:105	},
+{	src: 'image_03.jpg', srct: 'image_03ts.jpg', title: 'image 2o',
+    ID:46, albumID:105	}
+    ];
+
+    jQuery("#nanoGalleryMLN").nanoGallery({thumbnailWidth:120,thumbnailHeight:120,
+        items:contentGalleryMLN,
+        //paginationMaxItemsPerPage:3,
+        paginationMaxLinesPerPage:1, // paginationDots : true,
+        thumbnailHeight:'150',
+        thumbnailWidth:'auto',
+        paginationVisiblePages: 10,
+        thumbnailHoverEffect:'imageInvisible,imageScale150',
+        viewerDisplayLogo:true,
+        useTags:false,
+        locationHash:false,
+        lazyBuild:'display',
+        //breadcrumbAutoHideTopLevel:true,
+        maxItemsPerLine:10,
+        locationHash: false,
+        itemsBaseURL:'{{ MEDIA_URL  }}demonstration/'
+    });
+</script>
+<div class="container" style="margin-bottom: 150px;"></div>
+{% endblock %}
+

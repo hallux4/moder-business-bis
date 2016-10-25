@@ -11,7 +11,7 @@ class LogementInline(nested_admin.NestedStackedInline):
     model = Logement
     extra = 0
 
-class EcoleInline(nested_admin.NestedTabularInline):
+class EcoleInline(nested_admin.NestedStackedInline):
     model = Ecole
     extra = 0
 

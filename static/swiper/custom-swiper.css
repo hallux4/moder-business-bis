@@ -9,7 +9,7 @@
         
     }
     .swiper-slide img {
-    width:80%; /* you can use % */
+    width:100%; /* you can use % */
     height: auto;
     }
 

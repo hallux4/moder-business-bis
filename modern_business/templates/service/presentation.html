@@ -1,0 +1,15 @@
+{% extends 'service/base.html' %}
+{% load cms_tags menu_tags sekizai_tags staticfiles i18n %}
+
+{% block service_content %}
+
+{% if service %}
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="well">{{ service.description  }}</div>
+</div>
+{% endif %}
+
+
+<div class="container" style="margin-bottom: 150px;"></div>
+
+{% endblock %}
