@@ -1,25 +1,25 @@
-
 {% extends 'rent_lookup/base.html' %}
 {% load cms_tags menu_tags sekizai_tags staticfiles i18n %}
 
 {% block rent_lookup_content %}
 
+{% get_current_language as LANGUAGE_CODE %}
+{% get_language_info for LANGUAGE_CODE as lang %}
 
-            <div id="nanoGallery3">
-                {% for city in cities %}
-                {% for residence in city.residence_set.all %}
-                {% with residence.image_set.all|first as image %}
-                <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngid="1000{{ city.id }}" >{{city.city_name}}</a>
-                {% for residence in city.residence_set.all|dictsort:"residence_name" %}
-                {% with residence.image_set.all|first as image %}
-                <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="image" data-ngalbumid="1000{{ city.id }}" data-ngdest="/rent_lookup{{ city.departement.id }}/{{ city.id }}/{{ residence.id  }}/" data-ngid="10001{{ residence.id }}" >{{residence.residence_name}}</a>
-                {% endwith %}
-                {% endfor %}
-                {% endwith %}
-                 
-                {% endfor %}
-                {% endfor %}
-            </div>
+<div id="nanoGallery3">
+    {% for city in cities %}
+    {% for residence in city.residence_set.all %}
+    {% with residence.image_set.all|first as image %}
+    <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngid="1000{{ city.id }}" >{{city.city_name}}</a>
+    {% for residence in city.residence_set.all|dictsort:"residence_name" %}
+    {% with residence.image_set.all|first as image %}
+    <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="image" data-ngalbumid="1000{{ city.id }}" data-ngdest="/{{lang.code}}/rent_lookup/{{residence.id}}/" data-ngid="10001{{ residence.id }}" >{{residence.residence_name}}</a>
+    {% endwith %}
+    {% endfor %}
+    {% endwith %}
+
+    {% endfor %}
+    {% endfor %}
+</div>
 
 {% endblock %}
-

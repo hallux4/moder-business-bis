@@ -12,7 +12,7 @@
             <div class="swiper-slide">
                 <img data-src={{ image.photo.url  }} class="swiper-lazy img-responsive">
                 {% if image.description %}
-                    <div class="title well">{{ image.description  }}</div>
+                <div class="title well">{{ image.description  }}</div>
                 {% endif %}
 
             </div>
@@ -31,10 +31,10 @@
             {% for city in cities %}
             {% for residence in city.residence_set.all %}
             {% with residence.image_set.all|first as image %}
-            <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngid="1000{{ city.id }}" >{{city.city_name}}</a>
-            {% for residence in city.residence_set.all %}
+            <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngid="10001{{ city.id }}" >{{city.city_name}}</a>
+            {% for residence in city.residence_set.all|dictsort:"residence_name" %}
             {% with residence.image_set.all|first as image %}
-            <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="image" data-ngalbumid="1000{{ city.id }}" data-ngdest="/rent_lookup/{{ city.departement.id }}/{{ city.id }}/{{ residence.id  }}" data-ngid="10001{{ residence.id }}" >{{residence.residence_name}}</a>
+            <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="image" data-ngalbumid="10001{{ city.id }}" data-ngdest="/{{lang.code}}/rent_lookup/{{residence.id}}/" data-ngid="10002{{ residence.id   }}" >{{residence.residence_name}}</a>
             {% endwith %}
             {% endfor %}
             {% endwith %}
