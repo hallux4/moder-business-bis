@@ -36,6 +36,11 @@
     max-width:1200px;
 }
 
+#not-found {
+    margin: 0 auto;
+    max-width:900px;
+}
+
 #header2 {
     margin: 0 auto;
     max-width:100%;
@@ -57,7 +62,7 @@
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-image: none; }
 .navbar-inverse { border-color: #CFCFCF}
 .navbar-inverse .navbar-brand { color: #222}
-.navbar-inverse .navbar-brand:hover { color: #ffffff}
+.navbar-inverse .navbar-brand:hover { color: #1969cc}
 .navbar-inverse .navbar-nav>li>a { color: #000000}
 .navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { color: #FFFFFF}
 .navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { color: #FFFFFF}

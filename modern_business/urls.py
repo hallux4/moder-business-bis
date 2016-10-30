@@ -6,6 +6,7 @@ from django.conf.urls import *  # NOQA
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.http import HttpResponse
+from accueil import views
 
 admin.autodiscover()
 
@@ -13,6 +14,7 @@ urlpatterns = i18n_patterns('',
     (r'^robots.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", content_type="text/plain")),
     url(r'^admin-lecheng-location/', include(admin.site.urls)),
     url(r'^_nested_admin/', include('nested_admin.urls')),
+    url(r'^$', views.accueilpage, name='accueilpage'),
     url(r'^rent_lookup/', include('rent_lookup.urls')),
     url(r'^accueil/', include('accueil.urls')),
     url(r'^presentation/', include('presentation.urls')),

@@ -7,7 +7,11 @@
 {% get_language_info for LANGUAGE_CODE as lang %}
 {% for annonce in annonces %}
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div class="well"> {{ annonce.date  }}   {{ annonce.annonces_name  }}</br></br> {{ annonce.description  }} <a  href="/{{lang.code}}{{annonce.link_url}}" target=_blank> {{ categories.0.more  }}</a></div>
+    <div class="well"> {{ annonce.date  }}   {{ annonce.annonces_name  }}</br></br> {{ annonce.description  }} 
+        {% if annonce.link_url %}
+            <a  href="/{{lang.code}}{{annonce.link_url}}" target=_blank> {{ categories.0.more  }}</a>
+        {% endif %}
+    </div>
 
 
     <div class="container" style="margin-bottom: 20px;"></div>
