@@ -5,44 +5,42 @@
 
 {% if banniere.image_set.all %}
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            {% for image in banniere.image_set.all %}
-
-            <div class="swiper-slide">
-                <img data-src={{ image.photo.url  }} class="swiper-lazy img-responsive">
-                {% if image.description %}
-                <div class="title well">{{ image.description  }}</div>
-                {% endif %}
-
-            </div>
-            {% endfor %}
-            <!-- Add Pagination -->
-            <div class="swiper-pagination swiper-pagination-white"></div>
-            <!-- Navigation -->
-        </div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% for image in banniere.image_set.all %}
+      <div class="swiper-slide">
+        <img data-src={{ image.photo.url  }} class="swiper-lazy img-responsive">
+        {% if image.description %}
+        <div class="title well">{{ image.description  }}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+      <!-- Add Pagination -->
+      <div class="swiper-pagination swiper-pagination-white"></div>
+      <!-- Navigation -->
     </div>
+  </div>
 </div>
 {% endif %}
 
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div class="special-size">
-        <div id="nanoGallery3">
-            {% for city in cities %}
-            {% for residence in city.residence_set.all %}
-            {% with residence.image_set.all|first as image %}
-            <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngid="10001{{ city.id }}" >{{city.city_name}}</a>
-            {% for residence in city.residence_set.all|dictsort:"residence_name" %}
-            {% with residence.image_set.all|first as image %}
-            <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="image" data-ngalbumid="10001{{ city.id }}" data-ngdest="/{{lang.code}}/rent_lookup/{{residence.id}}/" data-ngid="10002{{ residence.id   }}" >{{residence.residence_name}}</a>
-            {% endwith %}
-            {% endfor %}
-            {% endwith %}
+  <div class="special-size">
+    <div id="nanoGallery3">
+      {% for city in cities %}
+      {% for residence in city.residence_set.all %}
+      {% with residence.image_set.all|first as image %}
+      <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngid="10001{{ city.id }}" >{{city.city_name}}</a>
+      {% for residence in city.residence_set.all|dictsort:"residence_name" %}
+      {% with residence.image_set.all|first as image %}
+      <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="image" data-ngalbumid="10001{{ city.id }}" data-ngdest="/{{lang.code}}/rent_lookup/{{residence.id}}/" data-ngid="10002{{ residence.id   }}" >{{residence.residence_name}}</a>
+      {% endwith %}
+      {% endfor %}
+      {% endwith %}
 
-            {% endfor %}
-            {% endfor %}
-        </div>
+      {% endfor %}
+      {% endfor %}
     </div>
+  </div>
 </div>
 
 

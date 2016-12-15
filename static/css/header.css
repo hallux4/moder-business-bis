@@ -2,8 +2,8 @@
 .stacktable { width: 100%; }
 .st-head-row { padding-top: 1em; }
 .st-head-row.st-head-row-main { font-size: 1.5em; padding-top: 0; }
-.st-key { width: 49%; text-align: right; padding-right: 1%; }
-.st-val { width: 49%; padding-left: 1%; }
+.st-key { width: 10%; text-align: left; padding-right: 1%; }
+.st-val { width: 100%; }
 
 
 /* RESPONSIVE EXAMPLE */
@@ -80,6 +80,7 @@
     margin: 0 auto;
     max-width:1200px;
     font-size:16px;
+    margin-bottom:15px;
 }
 
 .btn {
@@ -95,7 +96,9 @@
     box-shadow: 0px 1px 3px #666666;
     color: #ffffff;
     font-size: 20px;
-    padding: 10px 20px 10px 20px;
+    /*margin-left:50%;*/
+    margin-bottom:15px;
+    /*padding: 10px 20px 10px 20px;*/
     text-decoration: none;
 }
 
@@ -206,6 +209,10 @@ width: 100px;}
 .mytitle
 {
     font-weight:bold;color:#000000;background-color:#FFFFFF;letter-spacing:1.2pt;word-spacing:0pt;font-size:24px;text-align:left;line-height:1.2;
+}
+.mycss2
+{
+    font-weight:normal;color:#000000;background-color:#FFFFFF;letter-spacing:1.2pt;word-spacing:0pt;font-size:16px;text-align:left;line-height:1.2;
 }
 
 .dropdown-menu > li > a:hover
