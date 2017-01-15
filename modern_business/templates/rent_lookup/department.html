@@ -7,19 +7,28 @@
 {% get_language_info for LANGUAGE_CODE as lang %}
 
 <div id="nanoGallery3">
-    {% for city in cities %}
-    {% for residence in city.residence_set.all %}
-    {% with residence.image_set.all|first as image %}
-    <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngid="1000{{ city.id }}" >{{city.city_name}}</a>
-    {% for residence in city.residence_set.all|dictsort:"residence_name" %}
-    {% with residence.image_set.all|first as image %}
-    <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="image" data-ngalbumid="1000{{ city.id }}" data-ngdest="/{{lang.code}}/rent_lookup/{{residence.id}}/" data-ngid="10001{{ residence.id }}" >{{residence.residence_name}}</a>
-    {% endwith %}
-    {% endfor %}
-    {% endwith %}
+        {% for city in cities %}
+        {% for residence in city.residence_set.all %}
+        {% with residence.image_set.all|first as image %}
+       {% if image.photo.url %}
+         <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="album" data-ngid="10001{{ city.id }}" >{{city.city_name}}</a>
+       {% else %}
+       <a href="{{ MEDIA_URL}}/rent_lookup/no-image-available.jpg" data-ngthumb="{{ MEDIA_URL}}/rent_lookup/no-image-available.jpg" data-ngkind="album" data-ngid="10001{{ city.id }}" >{{city.city_name}}</a>
+       {% endif %}
+        {% for residence in city.residence_set.all|dictsort:"residence_name" %}
+        {% with residence.image_set.all|first as image %}
+       {% if image.photo.url %}
+        <a href="{{ image.photo.url }}" data-ngthumb="{{ image.photo.url }}" data-ngkind="image" data-ngalbumid="10001{{ city.id }}" data-ngdest="/{{lang.code}}/rent_lookup/{{residence.id}}/" data-ngid="10002{{residence.id}}"   >{{residence.residence_name}}</a>
+       {% else %}
+       <a href="{{ MEDIA_URL}}/rent_lookup/no-image-available.jpg" data-ngthumb="{{ MEDIA_URL}}/rent_lookup/no-image-available.jpg" data-ngkind="image" data-ngalbumid="10001{{ city.id }}" data-ngdest="/{{lang.code}}/rent_lookup/{{residence.id}}/" data-ngid="10002{{residence.id}}" >{{residence.residence_name}}</a>
+       {% endif %}
+        {% endwith %}
+        {% endfor %}
+        {% endwith %}
 
-    {% endfor %}
-    {% endfor %}
-</div>
+        {% endfor %}
+        {% endfor %}
+      </div>
+
 
 {% endblock %}

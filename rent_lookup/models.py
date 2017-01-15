@@ -40,7 +40,7 @@ class Ecole(models.Model):
 
 class Image(models.Model):
     residence = models.ForeignKey(Residence, on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to='rent_lookup')
+    photo = models.ImageField(upload_to='rent_lookup',blank=False, default='rent_lookup/no-image-available.jpg')
 
     def __str__(self):
         return "%s, %s" % (self.photo, self.residence)

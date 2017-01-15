@@ -3,21 +3,31 @@
 
 {% block annonces_content %}
 
-{% get_current_language as LANGUAGE_CODE %}
-{% get_language_info for LANGUAGE_CODE as lang %}
-{% for annonce in annonces %}
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div class="well"> {{ annonce.date  }}   {{ annonce.annonces_name  }}</br></br> {{ annonce.description  }} 
-        {% if annonce.link_url %}
-            <a  href="/{{lang.code}}{{annonce.link_url}}" target=_blank> {{ categories.0.more  }}</a>
-        {% endif %}
+<div class="container">
+  <div class="row">
+    <div class="panel-group" id="accordion">
+      {% for annonce in annonces %}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" data-target="#{{annonce.id}}">
+              <span class="glyphicon glyphicon-calendar">
+              </span> {{ annonce.date  }}   {{ annonce.annonces_name  }}</a>
+          </h4>
+        </div>
+        <div id="{{annonce.id}}" class="panel-collapse collapse">
+          <div class="well">{{ annonce.description  }}
+            {% if annonce.link_url %}
+            <a  href="{{annonce.link_url}}" target=_blank> {{ categories.0.more  }}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="container" style="margin: 10px;"></div>
+      {% endfor %}
     </div>
-
-
-    <div class="container" style="margin-bottom: 20px;"></div>
+  </div>
 </div>
-{% endfor %}
-
 
 <div class="container" style="margin-bottom: 150px;"></div>
 

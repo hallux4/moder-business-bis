@@ -5,7 +5,7 @@ from modeltranslation.translator import translator, TranslationOptions
 from service.models import Service
 
 class ServiceTranslationOptions(TranslationOptions):
-        fields = ('description',)
+        fields = ('description', 'service_name',)
 #        fallback_values = _('-- sorry, no translation provided --')
 
 translator.register(Service, ServiceTranslationOptions)

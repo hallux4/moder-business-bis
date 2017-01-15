@@ -3,11 +3,32 @@
 
 {% block service_content %}
 
-{% if service %}
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div class="well">{{ service.description  }}</div>
+<!--{% if service %}-->
+<!--{% endif %}-->
+
+<div class="container">
+  <div class="row">
+    <div class="panel-group" id="accordion">
+      {% for service in services %}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" data-target="#{{service.id}}">
+              <span class="glyphicon glyphicon-menu-right">
+              </span> {{service.service_name}}</a>
+          </h4>
+        </div>
+        <div id="{{service.id}}" class="panel-collapse collapse">
+          <div class="well">{{ service.description  }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
-{% endif %}
+
+
+
 
 
 <div class="container" style="margin-bottom: 150px;"></div>

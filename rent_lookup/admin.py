@@ -5,7 +5,7 @@ from .models import City, Residence, Ecole, Logement, Image, Categorie
 
 class ImageInline(nested_admin.NestedTabularInline):
     model = Image
-    extra = 0
+    extra = 1
 
 class LogementInline(nested_admin.NestedStackedInline):
     model = Logement
